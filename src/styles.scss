@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap+Enriqueta:400,700');
+
+button.mat-menu-item {
+    outline: none;
+}
+
+.cdk-overlay-pane {
+    padding-top: 17px !important;
+    padding-right: 10px;
+}

@@ -1,0 +1,138 @@
+.sidenav-container {
+    height: 100%;
+}
+
+.sidenav {
+    width: 200px;
+}
+
+.sidenav .mat-toolbar {
+    background: inherit;
+}
+
+.mat-toolbar img {
+    height: auto;
+    max-width: 100%;
+    width: 80px;
+    border-radius: 50%;
+}
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #605ca8;
+}
+
+.Sidenav-Container {
+    Height: 100%;
+}
+
+.Sidenav-Container {
+    Height: 100%;
+    Position: Fixed;
+    Top: 0;
+    left: 0;
+    Right: 0;
+}
+
+.sidenav .mat-toolbar {
+    background: #630973;
+    color: #ffffff;
+}
+
+.sidenav-container {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.sidenav {
+    width: 200px;
+}
+
+.sidenav .mat-toolbar {
+    background:  #555299;
+}
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.mat-drawer.mat-drawer-side {
+    background: #222d32;
+    width: 230px;
+}
+
+.mat-list-base a {
+    color: #b8c7ce;
+    text-align: center;
+    padding: 5px 5px 5px 15px;
+    display: block;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+}
+.mat-list-base a i {
+    padding-right: 12px;
+    font-size: 16px;
+}
+.mat-list-base a:hover {
+    color: #fff;
+    background: #1e282c;
+}
+.user-block {
+  position: absolute;
+  top: 16px;
+  left: auto;
+  right: 0;
+  z-index: 99;
+  display: flex;
+  .icon-block {
+      padding: 5px 25px 5px;
+      i {
+          color: #ffffff
+      }
+  }
+  .btn-block {
+    padding: 5px 0 0 0px;
+    margin-right: 5px;
+      button {
+          border: none;
+          outline: none;
+          background: none;
+          display: flex;
+          i {
+              color: #ffffff;
+              padding-right: 5px;
+          }
+          span {
+              padding-right: 15px;
+              color: #ffffff;
+          }
+      }
+  }
+}
+
+// @media (min-width: 992px) {
+//   .mat-toolbar.mat-primary {
+//     display: flex;
+//     justify-content: flex-end;
+//   }
+// }
+.arrow {
+    content: 'fc2';
+    border-color: #fff transparent;
+    border-style: solid;
+    border-width: 0px 15px 15px 15px;
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    top: 3px;
+    bottom: 0;
+    left: auto;
+    right: 20px;
+}
