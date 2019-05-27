@@ -110,7 +110,7 @@
               </kendo-toolbar>
             </kendo-editor>
             <mat-error
-              *ngIf="addProductForm.controls['product_description'].touched && addProductForm.controls['product_description'].errors?.required">
+              *ngIf="addProductForm.controls['product_description']?.touched && addProductForm.controls['product_description'].errors?.required">
               Description is required</mat-error>
           </div>
         </div>
@@ -133,6 +133,18 @@
                 </label>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group in_stock">
+            <label for="stock">Stock Avilability</label>
+            <select name="" id="" class="form-control">
+              <option value="choose" selected>Choose</option>
+              <option value="instock">In Stock</option>
+              <option value="outofstock">Out Of Stock</option>
+            </select>
           </div>
         </div>
       </div>

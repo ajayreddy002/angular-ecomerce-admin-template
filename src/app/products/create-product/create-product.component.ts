@@ -44,26 +44,24 @@ export class CreateProductComponent implements OnInit {
     this.dropzoneActive = $event;
   }
   handleDrop(fileList: any) {
-    // const fileType = fileList[0].type.split('/');
-    // fileList.map(item => {
-    //   if (item.type.includes(this.imgExtensions)) {
-    //     console.log('File Suported');
-    //   } else {
-    //     alert('dobbey');
-    //   }
-    // });
-    // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < fileList.length; i++) {
-      const fileType = fileList[i].type.split('/');
-      if (fileType.includes(this.imgExtensions)) {
+    for (const file of fileList) {
+      const fileType = file.name.substr(-3);
+      if (this.imgExtensions.includes(fileType)) {
         console.log('File Suported');
       } else {
         alert('err');
       }
     }
-    // if (fileList.type.includes(this.imgExtensions)) {}
   }
-  onChange = (fileList: FileList) => {
+  onChange = (fileList: any) => {
     console.log(fileList, 'change');
+    for (const file of fileList) {
+      const fileType = file.name.substr(-3);
+      if (this.imgExtensions.includes(fileType)) {
+        console.log('File Suported');
+      } else {
+        alert('err');
+      }
+    }
   }
 }

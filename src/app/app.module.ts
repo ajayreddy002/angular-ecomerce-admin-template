@@ -14,7 +14,7 @@ import {
   MatBadgeModule, MatMenuModule, MatCardModule, MatTableModule,
   MatSortModule, MatPaginatorModule, MatDialogModule,
    MatFormFieldModule, MatSelectModule, MatOptionModule,
-    MatInputModule, MatCheckboxModule
+    MatInputModule, MatCheckboxModule, MatProgressSpinnerModule
 } from '@angular/material';
 import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SideNavComponent } from './side-nav/side-nav.component';
@@ -75,10 +75,11 @@ import { FileUploadDirective } from './_directives/fileUploadDirective/file-uplo
     MatCheckboxModule,
     EditorModule,
     ToolBarModule,
-    DialogModule
+    DialogModule,
+    MatProgressSpinnerModule
   ],
   providers: [
-    HttpCrudServices
+    HttpCrudServices,
   ],
   entryComponents: [AddProductDialogComponent],
   bootstrap: [AppComponent]
