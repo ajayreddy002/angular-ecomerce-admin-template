@@ -153,7 +153,9 @@
         .mat-elevation-z8 {
             box-shadow: none;
         }
+
         padding-top: 20px;
+
         table {
             width: 100%;
             box-shadow: none;
@@ -167,15 +169,32 @@
         td,
         th {
             width: 25%;
+
             img {
                 height: 64px;
             }
-            .mat-header-cell {
-                border: none;
+
+            .icon-block {
+                display: flex;
+
+                i {
+                    font-size: 20px;
+                    flex: 1 auto;
+                    padding-left: 5px;
+                    padding-right: 10px;
+                    color: #757575;
+                    transition: 3ms ease-in-out;
+                    cursor: pointer;
+                }
             }
+
+            // .mat-header-cell {
+            //     border: none;
+            // }
         }
-        td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
-            border-bottom-style: none
-        }
+
+        // td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+        //     border-bottom-style: none
+        // }
     }
 }

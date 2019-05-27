@@ -8,10 +8,15 @@ import { CategoriesComponent } from './categories/categories.component';
 import { OrdersComponent } from './orders/orders.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import {MatSidenavModule, MatToolbarModule, MatButtonModule,
-   MatIconModule, MatListModule,
-    MatBadgeModule, MatMenuModule, MatCardModule, MatTableModule, MatSortModule, MatPaginatorModule} from '@angular/material';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {
+  MatSidenavModule, MatToolbarModule, MatButtonModule,
+  MatIconModule, MatListModule,
+  MatBadgeModule, MatMenuModule, MatCardModule, MatTableModule,
+  MatSortModule, MatPaginatorModule, MatDialogModule,
+   MatFormFieldModule, MatSelectModule, MatOptionModule,
+    MatInputModule, MatCheckboxModule
+} from '@angular/material';
+import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -19,6 +24,13 @@ import { SalesUserChartsComponent } from './sales-user-charts/sales-user-charts.
 import { ChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpCrudServices } from './_services/http.services';
+import { AddProductDialogComponent } from './products/dialogs/add.product.dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateProductComponent } from './products/create-product/create-product.component';
+import {EditorModule} from '@progress/kendo-angular-editor';
+import {ToolBarModule} from '@progress/kendo-angular-toolbar';
+import { DialogModule } from '@progress/kendo-angular-dialog';
+import { FileUploadDirective } from './_directives/fileUploadDirective/file-upload.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +41,10 @@ import { HttpCrudServices } from './_services/http.services';
     HomeComponent,
     SideNavComponent,
     DashboardComponent,
-    SalesUserChartsComponent
+    SalesUserChartsComponent,
+    AddProductDialogComponent,
+    CreateProductComponent,
+    FileUploadDirective,
   ],
   imports: [
     BrowserModule,
@@ -48,11 +63,24 @@ import { HttpCrudServices } from './_services/http.services';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatCheckboxModule,
+    EditorModule,
+    ToolBarModule,
+    DialogModule
   ],
   providers: [
     HttpCrudServices
   ],
+  entryComponents: [AddProductDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

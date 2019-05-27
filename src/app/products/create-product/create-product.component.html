@@ -1,0 +1,141 @@
+<div class="container-fluid">
+  <div class="create_title">
+    <h1>New Product</h1>
+    <div class="btn-block">
+      <button mat-button [disabled]="addProductForm.invalid">Create</button>
+      <button mat-button (click)="openConfirmDialog()">Cancel</button>
+    </div>
+  </div>
+  <kendo-dialog title="Please confirm" *ngIf="dialogOpened" (close)="close('dialog')" [minWidth]="250" [width]="450">
+    <p style="margin: 30px; text-align: center;">Changes you made may not be saved?</p>
+    <kendo-dialog-actions>
+      <button kendoButton (click)="action('no')">Cancel</button>
+      <button kendoButton (click)="action('yes')" primary="true">Leave</button>
+    </kendo-dialog-actions>
+  </kendo-dialog>
+  <div class="container">
+    <form [formGroup]="addProductForm">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="name">Name <span>*</span></label>
+            <input type="text" class="form-control" formControlName="product_name">
+            <mat-error
+              *ngIf="addProductForm.controls['product_name'].touched && addProductForm.controls['product_name'].errors?.required">
+              Name is required</mat-error>
+          </div>
+          <div class="form-group">
+            <label for="name">Category <span>*</span></label>
+            <select name="category" id="" class="form-control" formControlName="product_category">
+              <option value="grocery">Grocery</option>
+              <option value="tv">Tv's</option>
+              <option value="mobiles">Mobiles</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <div class="form-group">
+            <label for="price">Price <span>*</span></label>
+            <input type="text" class="form-control" formControlName="product_price">
+            <mat-error
+              *ngIf="addProductForm.controls['product_price'].touched && addProductForm.controls['product_price'].errors?.required">
+              Price is required</mat-error>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="quantity">Quantity <span>*</span></label>
+            <input type="number" class="form-control" formControlName="product_quantity">
+            <mat-error
+              *ngIf="addProductForm.controls['product_quantity'].touched && addProductForm.controls['product_quantity'].errors?.required">
+              Rating is required</mat-error>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="rating">Rating <span>*</span></label>
+            <input type="text" class="form-control" formControlName="product_rating">
+            <mat-error
+              *ngIf="addProductForm.controls['product_rating'].touched && addProductForm.controls['product_rating'].errors?.required">
+              Rating is required</mat-error>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="description">Product Description <span>*</span></label>
+            <kendo-editor class="form-control" formControlName="product_description">
+              <kendo-toolbar>
+                <kendo-toolbar-buttongroup>
+                  <kendo-toolbar-button kendoEditorUndoButton></kendo-toolbar-button>
+                  <kendo-toolbar-button kendoEditorRedoButton></kendo-toolbar-button>
+                </kendo-toolbar-buttongroup>
+                <kendo-toolbar-buttongroup>
+                  <kendo-toolbar-button kendoEditorBoldButton></kendo-toolbar-button>
+                  <kendo-toolbar-button kendoEditorItalicButton></kendo-toolbar-button>
+                  <kendo-toolbar-button kendoEditorUnderlineButton></kendo-toolbar-button>
+                  <kendo-toolbar-button kendoEditorStrikethroughButton></kendo-toolbar-button>
+                </kendo-toolbar-buttongroup>
+                <kendo-toolbar-buttongroup>
+                  <kendo-toolbar-button kendoEditorSubscriptButton></kendo-toolbar-button>
+                  <kendo-toolbar-button kendoEditorSuperscriptButton></kendo-toolbar-button>
+                </kendo-toolbar-buttongroup>
+                <kendo-toolbar-buttongroup>
+                  <kendo-toolbar-button kendoEditorAlignLeftButton></kendo-toolbar-button>
+                  <kendo-toolbar-button kendoEditorAlignCenterButton></kendo-toolbar-button>
+                  <kendo-toolbar-button kendoEditorAlignRightButton></kendo-toolbar-button>
+                  <kendo-toolbar-button kendoEditorAlignJustifyButton></kendo-toolbar-button>
+                </kendo-toolbar-buttongroup>
+                <kendo-toolbar-dropdownlist kendoEditorFormat></kendo-toolbar-dropdownlist>
+                <!-- <kendo-toolbar-dropdownlist kendoEditorFontSize></kendo-toolbar-dropdownlist> -->
+                <!-- <kendo-toolbar-dropdownlist kendoEditorFontFamily></kendo-toolbar-dropdownlist> -->
+                <kendo-toolbar-colorpicker kendoEditorForeColor></kendo-toolbar-colorpicker>
+                <kendo-toolbar-colorpicker kendoEditorBackColor></kendo-toolbar-colorpicker>
+                <kendo-toolbar-buttongroup>
+                  <kendo-toolbar-button kendoEditorInsertUnorderedListButton></kendo-toolbar-button>
+                  <kendo-toolbar-button kendoEditorInsertOrderedListButton></kendo-toolbar-button>
+                  <kendo-toolbar-button kendoEditorIndentButton></kendo-toolbar-button>
+                  <kendo-toolbar-button kendoEditorOutdentButton></kendo-toolbar-button>
+                </kendo-toolbar-buttongroup>
+                <kendo-toolbar-buttongroup>
+                  <kendo-toolbar-button kendoEditorCreateLinkButton></kendo-toolbar-button>
+                  <kendo-toolbar-button kendoEditorUnlinkButton></kendo-toolbar-button>
+                </kendo-toolbar-buttongroup>
+                <kendo-toolbar-button kendoEditorInsertFileButton></kendo-toolbar-button>
+                <kendo-toolbar-button kendoEditorInsertImageButton></kendo-toolbar-button>
+                <kendo-toolbar-button kendoEditorViewSourceButton></kendo-toolbar-button>
+              </kendo-toolbar>
+            </kendo-editor>
+            <mat-error
+              *ngIf="addProductForm.controls['product_description'].touched && addProductForm.controls['product_description'].errors?.required">
+              Description is required</mat-error>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="main-img-block">
+            <div class="form-group">
+              <label for="image">Images <span>*</span></label>
+              <div class="img_block dropzone" appFileUpload (filesDropped)="handleDrop($event)"
+                (filesHovered)="dropzoneState($event)" [ngClass]="{'active': dropzoneActive}">
+                <p><i class="material-icons">
+                    photo_library
+                  </i></p>
+                <p>Drop Images here</p>
+                <p>Or</p>
+                <label class="custom-file-upload">
+                  <input type="file" appFileUpload (selectedFiles)="onChange($event)" multiple/>
+                  select images
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

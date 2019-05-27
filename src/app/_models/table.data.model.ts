@@ -13,8 +13,7 @@ export interface ITableModel {
 export interface IProductDataModel {
   images: string;
   name: string;
-  description: string;
   price: number;
-  category: string;
   rating: number;
+  quantity: number;
 }
