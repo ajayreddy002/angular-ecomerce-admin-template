@@ -1,25 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { tap, delay } from 'rxjs/operators';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  constructor(private router: Router) { }
   isLoggedIn = false;
 
   // store the URL so we can redirect after logging in
   redirectUrl: string;
 
-  login(): Observable<boolean> {
-    return of(true).pipe(
-      delay(1000),
-      tap(val => this.isLoggedIn = true)
-    );
+  public login() {
+    localStorage.setItem('token', 'ajServiceToken');
+    this.router.navigate(['/home/dashboard']);
   }
-
+  public isAuthenticated = (): boolean => {
+    return localStorage.getItem('token') !== null;
+  }
   logout(): void {
+    localStorage.clear();
     this.isLoggedIn = false;
+    this.router.navigate(['/login']);
   }
 }

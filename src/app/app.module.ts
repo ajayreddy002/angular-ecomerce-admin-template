@@ -31,6 +31,8 @@ import {EditorModule} from '@progress/kendo-angular-editor';
 import {ToolBarModule} from '@progress/kendo-angular-toolbar';
 import { DialogModule } from '@progress/kendo-angular-dialog';
 import { FileUploadDirective } from './_directives/fileUploadDirective/file-upload.directive';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,6 +82,8 @@ import { FileUploadDirective } from './_directives/fileUploadDirective/file-uplo
   ],
   providers: [
     HttpCrudServices,
+    AuthService,
+    AuthGuard
   ],
   entryComponents: [AddProductDialogComponent],
   bootstrap: [AppComponent]
