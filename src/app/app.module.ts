@@ -13,8 +13,8 @@ import {
   MatIconModule, MatListModule,
   MatBadgeModule, MatMenuModule, MatCardModule, MatTableModule,
   MatSortModule, MatPaginatorModule, MatDialogModule,
-   MatFormFieldModule, MatSelectModule, MatOptionModule,
-    MatInputModule, MatCheckboxModule, MatProgressSpinnerModule
+  MatFormFieldModule, MatSelectModule, MatOptionModule,
+  MatInputModule, MatCheckboxModule, MatProgressSpinnerModule, MatAutocompleteModule
 } from '@angular/material';
 import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SideNavComponent } from './side-nav/side-nav.component';
@@ -27,12 +27,23 @@ import { HttpCrudServices } from './_services/http.services';
 import { AddProductDialogComponent } from './products/dialogs/add.product.dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateProductComponent } from './products/create-product/create-product.component';
-import {EditorModule} from '@progress/kendo-angular-editor';
-import {ToolBarModule} from '@progress/kendo-angular-toolbar';
+import { EditorModule } from '@progress/kendo-angular-editor';
+import { ToolBarModule } from '@progress/kendo-angular-toolbar';
 import { DialogModule } from '@progress/kendo-angular-dialog';
 import { FileUploadDirective } from './_directives/fileUploadDirective/file-upload.directive';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { AngularFireModule } from '@angular/fire';
+const config = {
+  apiKey: 'AIzaSyDwIen-_b4J56o6XyIVs7Zh-C71JiVqHac',
+  authDomain: 'vmart-278cf.firebaseapp.com',
+  databaseURL: 'https://vmart-278cf.firebaseio.com',
+  projectId: 'vmart-278cf',
+  storageBucket: 'vmart-278cf.appspot.com',
+  messagingSenderId: '1076020984273',
+  appId: '1:1076020984273:web:092c6be55e693fe1'
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +89,10 @@ import { AuthGuard } from './auth/auth.guard';
     EditorModule,
     ToolBarModule,
     DialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatAutocompleteModule,
+    GridModule,
+    AngularFireModule.initializeApp(config),
   ],
   providers: [
     HttpCrudServices,

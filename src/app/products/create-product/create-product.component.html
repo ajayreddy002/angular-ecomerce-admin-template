@@ -2,7 +2,7 @@
   <div class="create_title">
     <h1>New Product</h1>
     <div class="btn-block">
-      <button mat-button [disabled]="addProductForm.invalid">Create</button>
+      <button mat-button [disabled]="addProductForm.invalid" (click)="addProductsToDb()">Create</button>
       <button mat-button (click)="openConfirmDialog()">Cancel</button>
     </div>
   </div>
@@ -14,7 +14,7 @@
     </kendo-dialog-actions>
   </kendo-dialog>
   <div class="container">
-    <form [formGroup]="addProductForm">
+    <form [formGroup]="addProductForm" enctype="multipart/form-data" method="POST">
       <div class="row">
         <div class="col-12">
           <div class="form-group">
@@ -25,12 +25,21 @@
               Name is required</mat-error>
           </div>
           <div class="form-group">
-            <label for="name">Category <span>*</span></label>
-            <select name="category" id="" class="form-control" formControlName="product_category">
+            <!-- <label for="name">Category <span>*</span></label> -->
+            <!-- <select name="category" id="" class="form-control" formControlName="product_category">
               <option value="grocery">Grocery</option>
               <option value="tv">Tv's</option>
               <option value="mobiles">Mobiles</option>
-            </select>
+            </select> -->
+            <mat-form-field class="example-full-width">
+              <input type="text" class="form-control" placeholder="Category *" aria-label="Number" matInput
+                formControlName="product_category" [matAutocomplete]="auto">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
           </div>
         </div>
       </div>
@@ -116,6 +125,20 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-6">
+          <div class="form-group in_stock">
+            <label for="stock">Stock Avilability</label>
+            <select name="" id="" class="form-control" formControlName="stock_avilability">
+              <option value="choose" selected>Choose</option>
+              <option value="instock">In Stock</option>
+              <option value="outofstock">Out Of Stock</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form action="" method="POST" enctype="multipart/form-data" [formGroup]="productImagesForm">
+      <div class="row">
         <div class="col-12">
           <div class="main-img-block">
             <div class="form-group">
@@ -128,23 +151,11 @@
                 <p>Drop Images here</p>
                 <p>Or</p>
                 <label class="custom-file-upload">
-                  <input type="file" appFileUpload (selectedFiles)="onChange($event)" multiple/>
+                  <input type="file" appFileUpload (selectedFiles)="onChange($event)" multiple id="dummy" #test />
                   select images
                 </label>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-6">
-          <div class="form-group in_stock">
-            <label for="stock">Stock Avilability</label>
-            <select name="" id="" class="form-control">
-              <option value="choose" selected>Choose</option>
-              <option value="instock">In Stock</option>
-              <option value="outofstock">Out Of Stock</option>
-            </select>
           </div>
         </div>
       </div>
