@@ -5,7 +5,6 @@ import { FormBuilder } from '@angular/forms';
 import { SelectionModel } from '@angular/cdk/collections';
 import { HttpCrudServices } from '../_services/http.services';
 import { AppConstants } from '../app.constants';
-import * as firebase from 'firebase';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',

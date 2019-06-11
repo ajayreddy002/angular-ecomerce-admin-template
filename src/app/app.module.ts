@@ -34,16 +34,7 @@ import { FileUploadDirective } from './_directives/fileUploadDirective/file-uplo
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { GridModule } from '@progress/kendo-angular-grid';
-import { AngularFireModule } from '@angular/fire';
-const config = {
-  apiKey: 'AIzaSyDwIen-_b4J56o6XyIVs7Zh-C71JiVqHac',
-  authDomain: 'vmart-278cf.firebaseapp.com',
-  databaseURL: 'https://vmart-278cf.firebaseio.com',
-  projectId: 'vmart-278cf',
-  storageBucket: 'vmart-278cf.appspot.com',
-  messagingSenderId: '1076020984273',
-  appId: '1:1076020984273:web:092c6be55e693fe1'
-};
+// import { AngularFireModule } from '@angular/fire';
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,7 +83,7 @@ const config = {
     MatProgressSpinnerModule,
     MatAutocompleteModule,
     GridModule,
-    AngularFireModule.initializeApp(config),
+    // AngularFireModule.initializeApp(config),
   ],
   providers: [
     HttpCrudServices,
