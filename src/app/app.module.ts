@@ -14,7 +14,7 @@ import {
   MatBadgeModule, MatMenuModule, MatCardModule, MatTableModule,
   MatSortModule, MatPaginatorModule, MatDialogModule,
   MatFormFieldModule, MatSelectModule, MatOptionModule,
-  MatInputModule, MatCheckboxModule, MatProgressSpinnerModule, MatAutocompleteModule
+  MatInputModule, MatCheckboxModule, MatProgressSpinnerModule, MatAutocompleteModule, MatSnackBarModule
 } from '@angular/material';
 import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SideNavComponent } from './side-nav/side-nav.component';
@@ -34,13 +34,14 @@ import { FileUploadDirective } from './_directives/fileUploadDirective/file-uplo
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { GridModule } from '@progress/kendo-angular-grid';
+import { AlertService } from './_services/alert-service';
 // import { AngularFireModule } from '@angular/fire';
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent,
+    // ProductsComponent,
     CategoriesComponent,
-    OrdersComponent,
+   // OrdersComponent,
     LoginComponent,
     HomeComponent,
     SideNavComponent,
@@ -83,12 +84,14 @@ import { GridModule } from '@progress/kendo-angular-grid';
     MatProgressSpinnerModule,
     MatAutocompleteModule,
     GridModule,
+    MatSnackBarModule
     // AngularFireModule.initializeApp(config),
   ],
   providers: [
     HttpCrudServices,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    AlertService
   ],
   entryComponents: [AddProductDialogComponent],
   bootstrap: [AppComponent]

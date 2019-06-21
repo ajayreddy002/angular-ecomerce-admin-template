@@ -6,6 +6,7 @@ import { startWith, map } from 'rxjs/operators';
 import { HttpCrudServices } from 'src/app/_services/http.services';
 import { HttpHeaders } from '@angular/common/http';
 import { AppConstants } from 'src/app/app.constants';
+import { AlertService } from 'src/app/_services/alert-service';
 
 @Component({
   selector: 'app-create-product',
@@ -25,7 +26,8 @@ export class CreateProductComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private httpService: HttpCrudServices
+    private httpService: HttpCrudServices,
+    private alertService: AlertService
   ) { }
 
   ngOnInit() {
@@ -74,14 +76,21 @@ export class CreateProductComponent implements OnInit {
       const fileType = file.name.substr(-3);
       if (this.imgExtensions.includes(fileType)) {
         console.log('File Suported');
+        file.path = this.test.nativeElement.value;
+        this.imageData.push(file);
       } else {
-        alert('err');
+        this.alertService.show('file not supported', 'close');
       }
     }
   }
   onChange = (fileList: any) => {
     console.log(this.test.nativeElement.value, 'change');
     for (const file of fileList) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload =  () => {
+        console.log(reader.result);
+      };
       const fileType = file.name.substr(-3);
       if (this.imgExtensions.includes(fileType)) {
         console.log('File Suported');
@@ -89,7 +98,7 @@ export class CreateProductComponent implements OnInit {
         this.uploadFileToServer(file);
         this.imageData.push(file);
       } else {
-        alert('err');
+        this.alertService.show('file not supported', 'close');
       }
     }
   }

@@ -28,6 +28,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     this.getProducts();
+    this.dataSource.sort = this.sort;
   }
 
   applyFilter(filterValue: string) {

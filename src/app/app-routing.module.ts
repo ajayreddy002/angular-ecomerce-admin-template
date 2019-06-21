@@ -19,11 +19,14 @@ const routes: Routes = [
     children: [{
       path: '', canActivateChild: [AuthGuard],
       children: [
-        { path: 'products', component: ProductsComponent },
+        // { path: 'products', component: ProductsComponent },
+        { path: 'products', loadChildren: './products/products.module#ProductsModule' },
         { path: 'dashboard', component: DashboardComponent },
         { path: 'categories', component: CategoriesComponent },
-        { path: 'orders', component: OrdersComponent },
-        { path: 'vendors', component: OrdersComponent },
+        // { path: 'orders', component: OrdersComponent },
+        { path: 'orders', loadChildren: './orders/orders.module#OrdersModule' },
+        // { path: 'vendors', component: OrdersComponent },
+        { path: 'vendors', loadChildren: './orders/orders.module#OrdersModule' },
         { path: 'createproduct', component: CreateProductComponent },
       ]
     }
