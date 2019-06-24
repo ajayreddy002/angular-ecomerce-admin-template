@@ -35,6 +35,7 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { AlertService } from './_services/alert-service';
+import {FileUploadModule} from 'primeng/fileupload';
 // import { AngularFireModule } from '@angular/fire';
 @NgModule({
   declarations: [
@@ -84,7 +85,9 @@ import { AlertService } from './_services/alert-service';
     MatProgressSpinnerModule,
     MatAutocompleteModule,
     GridModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FileUploadModule,
+    MatIconModule
     // AngularFireModule.initializeApp(config),
   ],
   providers: [

@@ -155,6 +155,16 @@
                   select images
                 </label>
               </div>
+              <ng-container>
+                <div class="preview-images-zone">
+                  <div class="preview-image" *ngFor="let src of imgSrc; let i = index">
+                    <div class="image-cancel" (click)="removeImg(src, i)">x</div>
+                    <div class="image-zone">
+                      <img [src]="src" alt="">
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
             </div>
           </div>
         </div>

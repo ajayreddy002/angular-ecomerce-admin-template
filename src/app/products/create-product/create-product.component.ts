@@ -7,6 +7,7 @@ import { HttpCrudServices } from 'src/app/_services/http.services';
 import { HttpHeaders } from '@angular/common/http';
 import { AppConstants } from 'src/app/app.constants';
 import { AlertService } from 'src/app/_services/alert-service';
+import { MatSnackBarConfig } from '@angular/material';
 
 @Component({
   selector: 'app-create-product',
@@ -23,6 +24,10 @@ export class CreateProductComponent implements OnInit {
   filteredOptions: Observable<string[]>;
   imageData: any = [];
   productImagesForm: FormGroup;
+  imgSrc: any = [];
+  private config: MatSnackBarConfig = {
+    panelClass: ['style-error'],
+  };
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -79,28 +84,30 @@ export class CreateProductComponent implements OnInit {
         file.path = this.test.nativeElement.value;
         this.imageData.push(file);
       } else {
-        this.alertService.show('file not supported', 'close');
+        this.alertService.show('file not supported', 'close', 'style-error');
       }
     }
   }
   onChange = (fileList: any) => {
     console.log(this.test.nativeElement.value, 'change');
     for (const file of fileList) {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload =  () => {
-        console.log(reader.result);
-      };
       const fileType = file.name.substr(-3);
       if (this.imgExtensions.includes(fileType)) {
-        console.log('File Suported');
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          this.imgSrc.push(reader.result);
+        };
         file.path = this.test.nativeElement.value;
         this.uploadFileToServer(file);
         this.imageData.push(file);
       } else {
-        this.alertService.show('file not supported', 'close');
+        this.alertService.show('file not supported', 'close', 'style-error');
       }
     }
+  }
+  removeImg = (index: number) => {
+    this.imgSrc.splice(index, 1);
   }
   uploadFileToServer = (fileData) => {
     // const formData = new FormData();
@@ -131,8 +138,10 @@ export class CreateProductComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
+          this.alertService.show('Data Inserted Successfully', 'close', 'success_msg');
         }, err => {
           console.log(err);
+          this.alertService.show('Something went wrong', 'close', 'style-error');
         }
       );
   }

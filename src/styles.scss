@@ -3,6 +3,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap+Enriqueta:400,700');
 @import "~@progress/kendo-theme-material/dist/all";
+
 button.mat-menu-item {
     outline: none;
 }
@@ -10,4 +11,13 @@ button.mat-menu-item {
 .cdk-overlay-pane {
     padding-top: 17px !important;
     padding-right: 10px;
+}
+
+.style-error {
+    background-color: #ffffff;
+    color: red;
+}
+.success_msg {
+    background-color:rgb(20, 207, 20);
+    color:  #ffffff;
 }
