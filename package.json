@@ -35,7 +35,7 @@
     "@progress/kendo-angular-dateinputs": "3.7.3",
     "@progress/kendo-angular-dialog": "3.12.0",
     "@progress/kendo-angular-dropdowns": "3.5.4",
-    "@progress/kendo-angular-editor": "0.5.0",
+    "@progress/kendo-angular-editor": "1.2.3",
     "@progress/kendo-angular-excel-export": "2.3.0",
     "@progress/kendo-angular-gauges": "2.4.1",
     "@progress/kendo-angular-grid": "^3.14.2",
